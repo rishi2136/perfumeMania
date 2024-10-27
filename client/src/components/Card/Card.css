@@ -1,0 +1,44 @@
+.product-card{
+    text-decoration: none;
+    color: black;
+    width: 22rem;
+    display: flex;
+    flex-direction: column;
+   justify-content: center;
+    padding: 16px;
+    background-color: white;
+    margin: 4px;
+    border: 2px solid brown;
+    box-shadow: 2px 2px 4px 2px black;
+    position: relative;
+    inset: 0;
+   transition: box-shadow .5s, inset .5s;
+}
+
+.product-card:hover{
+    box-shadow: 8px 8px 4px 8px black;
+    inset: -4px 0 0 -4px;
+}
+
+.product-image{
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+.product-title{
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.price{
+    float: right;
+    clear: both;
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+
+.card-delete-btn{
+    float: right;
+    margin: 8px;
+    cursor: pointer;
+}
