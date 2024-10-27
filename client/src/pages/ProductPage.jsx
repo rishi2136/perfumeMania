@@ -5,17 +5,19 @@ import { useNavigate } from "react-router-dom";
 import ReviewFrom from "../components/Review/ReviewFrom.jsx";
 import ReviewCard from "../components/Review/ReviewCard.jsx";
 import Gallery from "../components/Gallery/Gallery.jsx";
+import ShareBtn from "../components/Share/ShareBtn.jsx";
 
 const ProductPage = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
+  const [isShare, setIsShare] = useState(false);
   const navigate = useNavigate();
 
   //fetch unique product
   useEffect(() => {
-    getProductById(`http://localhost:3012/api/product/${id}`).then((res) =>{
-      setProduct(res)
-   } );
+    getProductById(`http://localhost:3012/api/product/${id}`).then((res) => {
+      setProduct(res);
+    });
   }, [product]);
 
   const handleDeleteClick = (id) => {
@@ -62,25 +64,29 @@ const ProductPage = () => {
               <span className="product-card-rating">
                 5<i className="fa-solid fa-star star"> </i>Rating
               </span>
-              <Link className="card-share-btn" to={`/product/${product._id}`}>
+              <div className="card-share-btn" onClick={() => setIsShare(true)}>
                 <i className="fa-solid fa-share-nodes"></i>
-              </Link>
+              </div>
             </div>
           </div>
         </div>
       )}
-   <h1 className="pre-review-heading">Gallery</h1>
-   <hr  className="pre-review-heading" />
-      {product !== null &&  <Gallery images={product.images}/> } 
-  
+      <h1 className="pre-review-heading">Gallery</h1>
+      <hr className="pre-review-heading" />
+      {product !== null && <Gallery images={product.images} />}
 
       <h1 className="pre-review-heading">Add Review</h1>
-      <hr  className="pre-review-heading" />
-      {product !== null &&   <ReviewFrom productId={product._id}/>}
-    {product !== null && <div className="review-container">
-        {product.review.length > 0 && product.review.map((el, idx)=><ReviewCard uniqueReview={el} key={idx} />) }
-      </div>}
-      
+      <hr className="pre-review-heading" />
+      {product !== null && <ReviewFrom productId={product._id} />}
+      {product !== null && (
+        <div className="review-container">
+          {product.review.length > 0 &&
+            product.review.map((el, idx) => (
+              <ReviewCard uniqueReview={el} key={idx} />
+            ))}
+        </div>
+      )}
+      {isShare && <ShareBtn setIsShare={setIsShare} />}
     </>
   );
 };
