@@ -4,7 +4,7 @@ import { configDotenv } from 'dotenv';
 configDotenv();
 const app = express();
 const PORT = process.env.PORT || 3000;
-const db_url = process.env.DB_URL;
+const db_url = process.env.MONGO_CLOUD_URL;
 import cors from 'cors';
 import bodyParser from 'body-parser';
 // import apiRoutes from './routes/api.js';
