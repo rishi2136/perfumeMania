@@ -14,11 +14,11 @@ const Card = ({product}) => {
 const handleDeleteClick = ( evt, id)=>{
   evt.preventDefault();
   evt.stopPropagation();
-    deleteProductById(`http://localhost:3012/api/product/${id}`)
-    .then(res=>{
-
-  navigate("/home")
-});
+    deleteProductById(
+      `https://perfumemania-backend.onrender.com/api/product/${id}`
+    ).then((res) => {
+      navigate("/home");
+    });
   };
 
 

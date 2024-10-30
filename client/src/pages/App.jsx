@@ -11,8 +11,8 @@ function App() {
   const [products, setProducts] = useState(null);
 
   useEffect(() => {
-    getProduct("http://localhost:3012/api/product").then((res) =>
-      setProducts(res)
+    getProduct("https://perfumemania-backend.onrender.com/api/product").then(
+      (res) => setProducts(res)
     );
   }, [products]);
 

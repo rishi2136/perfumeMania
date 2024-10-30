@@ -15,15 +15,17 @@ const ProductPage = () => {
 
   //fetch unique product
   useEffect(() => {
-    getProductById(`http://localhost:3012/api/product/${id}`).then((res) => {
+    getProductById(
+      `https://perfumemania-backend.onrender.com/api/product/${id}`
+    ).then((res) => {
       setProduct(res);
     });
   }, [product]);
 
   const handleDeleteClick = (id) => {
-    deleteProductById(`http://localhost:3012/api/product/${id}`).then((res) =>
-      console.log(res)
-    );
+    deleteProductById(
+      `https://perfumemania-backend.onrender.com/api/product/${id}`
+    ).then((res) => console.log(res));
     navigate("/home");
   };
 

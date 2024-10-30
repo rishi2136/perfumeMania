@@ -12,8 +12,13 @@ const ReviewFrom = ({productId}) => {
   // console.log(productId);
 
   const handleSubmit = ()=>{
-    console.log(`http://localhost:3012/api/review/${productId}`)
-  addReview(`http://localhost:3012/api/review/${productId}`, newReview);
+    console.log(
+      `https://perfumemania-backend.onrender.com/api/review/${productId}`
+    );
+    addReview(
+      `https://perfumemania-backend.onrender.com/api/review/${productId}`,
+      newReview
+    );
   setNewReview({
     reviewer: "",
     stars: 0,
